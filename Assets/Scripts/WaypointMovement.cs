@@ -6,7 +6,8 @@ public class WaypointMovement : MonoBehaviour
 {
     [SerializeField] GameObject[] waypoints;
     int currentWaypointIndex = 0;
-    [SerializeField] float movementSpeed = 1f;
+    [SerializeField] float movementSpeed = 7f;
+    [SerializeField] float easymodeMovementSpeed = .1f;
     void Update()
     {
         FollowWaypoints(waypoints);
@@ -14,6 +15,13 @@ public class WaypointMovement : MonoBehaviour
 
     void FollowWaypoints(GameObject[] waypoints)
     {
+        bool isEasyMode = EasyModeToggle.isEasyMode;
+        float currentMovementSpeed = isEasyMode ? easymodeMovementSpeed : movementSpeed;
+        //
+        // Debug.Log("isEasyMode: " + isEasyMode);
+        // Debug.Log("currentMovementSpeed: " + currentMovementSpeed);
+        //         
+        
         if (Vector3.Distance(transform.position, waypoints[currentWaypointIndex].transform.position) < 0.1f)
         {
             currentWaypointIndex++;
@@ -25,7 +33,7 @@ public class WaypointMovement : MonoBehaviour
         
         transform.position = Vector3.MoveTowards(transform.position,
             waypoints[currentWaypointIndex].transform.position,
-            movementSpeed * Time.deltaTime);
+            currentMovementSpeed * Time.deltaTime);
     }
     
 }
