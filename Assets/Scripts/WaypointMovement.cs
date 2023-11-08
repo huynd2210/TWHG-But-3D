@@ -7,7 +7,8 @@ public class WaypointMovement : MonoBehaviour
     [SerializeField] GameObject[] waypoints;
     int currentWaypointIndex = 0;
     [SerializeField] float movementSpeed = 7f;
-    [SerializeField] float easymodeMovementSpeed = .1f;
+    [SerializeField] private float easymodeMovementSpeed = .1f;
+    public bool IsPowerActivated = false;
     void Update()
     {
         FollowWaypoints(waypoints);

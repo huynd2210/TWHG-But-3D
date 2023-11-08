@@ -1,0 +1,6 @@
+
+Ocsharpsquid:S3903"-Move 'EasyModeToggle' into a named namespace.(°ùÌóùÿÿÿÿ
+hcsharpsquid:S1104"DMake this field 'private' and encapsulate it in a 'public' property.(ËÁÂ¹8å‘Å¸1
+mcsharpsquid:S1104	"DMake this field 'private' and encapsulate it in a 'public' property.(¤ç›’ÿÿÿÿÿ8œÀËÄ¸1
+pcsharpsquid:S2223	"GChange the visibility of 'isEasyMode' or make it 'const' or 'readonly'.(¤ç›’ÿÿÿÿÿ8œÀËÄ¸1
+ycsharpsquid:S2696"UMake the enclosing instance method 'static' or remove this set on the 'static' field.(‘†´š8ë¸ÈÄ¸1

@@ -20,20 +20,31 @@ public class PlayerLife : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log("Death Count: " + deathCount);
+        // Debug.Log("Death Count: " + deathCount);
         if (isPlayerFallingOff())
         {
-            Debug.Log("Death Count: " + deathCount);
+            // Debug.Log("Death Count: " + deathCount);
             resolvePlayerDeath();
         }
     }
 
     private void OnCollisionEnter(Collision other)
     {
+        Debug.Log("colliding with: " + other.gameObject.name);
         if (other.gameObject.CompareTag("Enemy Body"))
         {
             resolvePlayerDeath();
         }
+
+        if (other.gameObject.CompareTag("Finish"))
+        {
+            resolvePlayerWin();
+        }
+    }
+
+    private void resolvePlayerWin()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     private bool isPlayerFallingOff()
@@ -50,7 +61,7 @@ public class PlayerLife : MonoBehaviour
         deathCount++;
         PlayerPrefs.SetInt("DeathCount", deathCount);
 
-        if (deathCount >= 3)
+        if (deathCount >= 30)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);  
         }
